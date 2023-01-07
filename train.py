@@ -189,6 +189,7 @@ def train(dir1, dir2, dir3, modelName):
                     [abs(df0.loc[i, column] - df1.loc[j, column]), abs(df0.loc[i, column] - df2.loc[j, column]),
                      abs(df1.loc[i, column] - df2.loc[j, column])])
             X = pd.concat([X, x])
+    y = np.array(y)
 
     forest = RandomForestRegressor(max_depth=20, n_estimators=10)
     forest.fit(X, y)
